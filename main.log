@@ -1,0 +1,5 @@
+2023-04-24 18:30:51,867, example_for_log.py, <module>, 10, DEBUG, 123, root
+2023-04-24 18:30:51,867, example_for_log.py, <module>, 11, INFO, Сообщение отправлено, root
+2023-04-24 18:30:51,867, example_for_log.py, <module>, 12, WARNING, Большая нагрузка!, root
+2023-04-24 18:30:51,867, example_for_log.py, <module>, 13, ERROR, Бот не смог отправить сообщение, root
+2023-04-24 18:30:51,867, example_for_log.py, <module>, 14, CRITICAL, Всё упало! Зовите админа!1!111, root
