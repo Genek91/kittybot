@@ -1,7 +1,14 @@
 import requests
 from telegram import Bot
 
-bot = Bot(token='6131962065:AAG8kZSpKYY3nTpD4Ep9ywKCAq26-bWhEFc')
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
+
+bot = Bot(token=os.getenv('TOKEN'))
 URL = 'https://api.thecatapi.com/v1/images/search'  
 response = requests.get(URL).json()
 random_cat_url = response[0].get('url')
