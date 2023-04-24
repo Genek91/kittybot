@@ -7,12 +7,18 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-updater = Updater(token=os.getenv('TOKEN'))
 URL = 'https://api.thecatapi.com/v1/images/search'
 
 
 def get_new_image():
-    response = requests.get(URL).json()
+    try:
+        response = requests.get(URL)
+    except Exception as error:
+        print(error)
+        new_url = 'https://api.thedogapi.com/v1/images/search'
+        response = requests.get(new_url)
+
+    response = response.json()
     random_cat = response[0].get('url')
     return random_cat
 
@@ -36,7 +42,15 @@ def wake_up(update, context):
     context.bot.send_photo(chat.id, get_new_image())
 
 
-updater.dispatcher.add_handler(CommandHandler('start', wake_up))
-updater.dispatcher.add_handler(CommandHandler('newcat', new_cat))
-updater.start_polling()
-updater.idle()
+def main():
+    updater = Updater(token=os.getenv('TOKEN'))
+
+    updater.dispatcher.add_handler(CommandHandler('start', wake_up))
+    updater.dispatcher.add_handler(CommandHandler('newcat', new_cat))
+
+    updater.start_polling()
+    updater.idle()
+
+
+if __name__ == '__main__':
+    main()
