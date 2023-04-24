@@ -12,7 +12,7 @@ bot = Bot(token=os.getenv('TOKEN'))
 URL = 'https://api.thecatapi.com/v1/images/search'  
 response = requests.get(URL).json()
 random_cat_url = response[0].get('url')
-bot.send_photo(5199953370, random_cat_url)
+bot.send_photo(<чат-id>, random_cat_url)
 
 print(response)
 
