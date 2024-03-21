@@ -46,7 +46,7 @@ python3 -m pip install --upgrade pip
 ```bash
 pip install -r requirements.txt
 ```
-
+Заполнить .env.
 Запуск в режиме polling:
 
 ```bash
